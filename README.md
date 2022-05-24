@@ -1,4 +1,4 @@
-# A Simple memory match game 
+# A simple memory match game 
 
 There is field 4x4 of 8 pairs of the cards
 
