@@ -37,8 +37,8 @@ class PlayGame extends Phaser.Scene {
     constructor() {
         super("PlayGame");
     }
-    preload() {
 
+    preload() {
         this.load.spritesheet('back', 'assets/images/back.png', {
             frameWidth: gameOptions.cardWidth,
             frameHeight: gameOptions.cardHeight  
@@ -76,6 +76,7 @@ class PlayGame extends Phaser.Scene {
             frameHeight: gameOptions.cardHeight 
         });;
     }
+
     create() {
         console.log(this)
         this.deck = ['ball', 'beetroot', 'bomb', 'boulders', 'box', 
@@ -101,9 +102,8 @@ class PlayGame extends Phaser.Scene {
     }
 
     clickHandler (box) {
-        console.log(box)
-
     }
+    
     compareCards() {
         if (cardsForMatching[0] == cardsForMatching[1]) {
             console.log(true)
@@ -118,19 +118,18 @@ class PlayGame extends Phaser.Scene {
                 interactivePool[i].setInteractive()                 
             }
             this.time.addEvent({
-					delay: 700,
-					callbackScope: this,
-					callback: function() {
-                        for (let i = 0; i < alphaPool.length; i++) {
-                            alphaPool[i].alpha = 1
-                        }
+				delay: 700,
+				callbackScope: this,
+				callback: function() {
+                    for (let i = 0; i < alphaPool.length; i++) {
+                        alphaPool[i].alpha = 1
+                    }
                     alphaPool.pop()
                     alphaPool.pop()    
                     cardsForMatching.length = 0
                     this.input.mouse.manager.enabled = true
 					},
-			});
-           
+			});   
         }    
         if (numMatches == 8) {
             this.time.addEvent({
@@ -162,7 +161,6 @@ class PlayGame extends Phaser.Scene {
     fillTheField() {
         coordX = 300
         coordY = 200
-
         for (let i = 0; i < 16; i++) {      
             this.tweens.add({
                 targets: this.createCard(i), 
@@ -171,9 +169,7 @@ class PlayGame extends Phaser.Scene {
                 duration: 500,
                 ease: "Cubic.easeOut",
             })
-
             coordX = coordX + 400
-
             if ((i + 1) % 4 == 0) {
                 coordX = 300
                 coordY = coordY + 300
@@ -181,7 +177,6 @@ class PlayGame extends Phaser.Scene {
         }
         coordX = 300
         coordY = 200
-
         this.time.addEvent({
             delay: 5000,
             callbackScope: this,
@@ -191,10 +186,8 @@ class PlayGame extends Phaser.Scene {
                         targets: this.createClickBox(i), 
                         x: coordX,
                         y: coordY,               
-                    })
-        
+                    })       
                     coordX = coordX + 400
-        
                     if ((i + 1) % 4 == 0) {
                         coordX = 300
                         coordY = coordY + 300
