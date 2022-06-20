@@ -1,6 +1,6 @@
 # A simple memory match game 
 
-There is field 4x4 of 8 pairs of the cards
+There is a field 4x4 of 8 pairs of the cards
 
 You have 5 seconds to remember the positions of the cards before they turn over
 
