@@ -115,28 +115,28 @@ class PlayGame extends Phaser.Scene {
                 interactivePool[i].setInteractive()                 
             }
             this.time.addEvent({
-				delay: 700,
-				callbackScope: this,
-				callback: function() {
-                    for (let i = 0; i < alphaPool.length; i++) {
-                        alphaPool[i].alpha = 1
-                    }
-                    alphaPool.pop()
-                    alphaPool.pop()    
-                    cardsForMatching.length = 0
-                    this.input.mouse.manager.enabled = true
-					},
-			});   
+		delay: 700,
+		callbackScope: this,
+		callback: function() {
+                for (let i = 0; i < alphaPool.length; i++) {
+                    alphaPool[i].alpha = 1
+                }
+	       	alphaPool.pop()
+	        alphaPool.pop()    
+	        cardsForMatching.length = 0
+	        this.input.mouse.manager.enabled = true
+		},
+	    });   
         }    
         if (numMatches == 8) {
             this.time.addEvent({
-				delay: 5000,
-				callbackScope: this,
-				callback: function() {
-					this.scene.start('PlayGame');
-				},
-			});
-        }  
+	    delay: 5000,
+	    callbackScope: this,
+	    callback: function() {
+	    this.scene.start('PlayGame');
+	    },
+	 });
+       }  
     }
         
     createCard(i) {
