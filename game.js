@@ -78,7 +78,6 @@ class PlayGame extends Phaser.Scene {
     }
 
     create() {
-        console.log(this)
         this.deck = ['ball', 'beetroot', 'bomb', 'boulders', 'box', 
         'bush', 'carrot', 'coin', 'ball', 'beetroot', 'bomb', 'boulders', 'box', 
         'bush', 'carrot', 'coin']
@@ -106,14 +105,12 @@ class PlayGame extends Phaser.Scene {
     
     compareCards() {
         if (cardsForMatching[0] == cardsForMatching[1]) {
-            console.log(true)
             cardsForMatching.length = 0
             numMatches++
             alphaPool.pop()
             alphaPool.pop()  
             this.input.mouse.manager.enabled = true
         } else {
-            console.log(false)
             for (let i = 0; i < interactivePool.length; i++) {
                 interactivePool[i].setInteractive()                 
             }
